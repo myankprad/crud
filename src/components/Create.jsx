@@ -3,8 +3,10 @@ import React, { useState } from 'react'
 const Create = () => {
 
     const [name, setName] = useState("")
-    const [age, setAge] = useState()
+    const [age, setAge] = useState(0)
     const [email, setEmail] = useState("")
+    const [error, setError] = useState()
+
 
     const handelSubmit = async (e)=>{
       e.preventDefault()
@@ -20,18 +22,26 @@ const Create = () => {
 
      if(!response.ok){
         console.log(result.error)
+        setError(result.error)
      }
      if(response.ok){
         console.log(result)
-     }
-      setAge("")
+       setError("")
+        setAge(0)
       setEmail("")
       setName("")
+     }
+      
     }
 
 
   return (
     <div className='container my-2'>
+    
+    {error && <div className="alert alert-danger">
+ {error}
+</div>}
+
     <h2 className='text-center'>Enter the data</h2>
     <form onSubmit={handelSubmit}>
     <div className="mb-3">

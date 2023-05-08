@@ -39,6 +39,9 @@ const Read = () => {
                   Delete
                 </a>
                 <a href="#" className="card-link">
+                  Delete
+                </a>
+                <a href="#" className="card-link">
                   edit{""}
                 </a>
               </div>
